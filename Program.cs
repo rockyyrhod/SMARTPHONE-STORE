@@ -5,6 +5,9 @@ class Program
     public static void DisplayReceipt(Receipt receipt)
     {
         Console.WriteLine("\n---------- Receipt ----------");
+        Console.Writeline("Rhy`s Smartphone Store");
+
+        
         Console.WriteLine($"Receipt Number: {receipt.ReceiptNumber}");
         Console.WriteLine($"Date and Time: {receipt.DateTime}");
         Console.WriteLine($"Mode of Payment: {receipt.MOP}");
@@ -12,7 +15,7 @@ class Program
         Console.WriteLine(receipt.ChosenSmartphone);
         Console.WriteLine($"Quantity: {receipt.Quantity}");
         Console.WriteLine($"Total Price: P{receipt.GetTotalPrice()}");
-        Console.WriteLine("Thank you for buying from us, see you again!");
+        Console.WriteLine("Thank you for purchasing from us, we hope to see you again!");
     }
 
     static void Main(string[] args)
@@ -44,7 +47,7 @@ class Program
         Console.WriteLine("Good Day User! Welcome to Rhy's Smartphone Store");
 
         bool exit = false;
-        int receiptNumber = 1;
+        int receiptNumber = 879604867;
 
         while (!exit)
         {
@@ -56,6 +59,7 @@ class Program
                 Console.WriteLine("\nThank you for visiting Rhy's Smartphone Store. Have a great day!");
                 break;
             }
+
 
             Console.WriteLine("Based on your preferred color, Here`s the smartphone brands that you would like:");
             Console.WriteLine("1. Apple");
@@ -145,7 +149,7 @@ class Program
                         Console.WriteLine("\nHere are the specifications of your chosen phone:");
                         var chosenSmartphone = smartphones[modelChoice];
                         Console.WriteLine(chosenSmartphone);
-                        Console.WriteLine($"\nTotal Price for {quantity} unit(s): ₱{chosenSmartphone.GetTotalPrice(quantity)}");
+                        Console.WriteLine($"\nTotal Price for {quantity} unit(s): P{chosenSmartphone.GetTotalPrice(quantity)}");
 
 
                         Console.WriteLine("\nPlease choose a payment method:");
@@ -175,10 +179,11 @@ class Program
                                 continue;
                         }
 
-                        Console.WriteLine($"Please proceed to the counter for your payment and receipt using {paymentMethod}, Thank you!");
+                        Console.WriteLine($"Please proceed to the counter for your payment using '{paymentMethod}' and your receipt, Thank you!");
 
                         Receipt receipt = new Receipt(receiptNumber, paymentMethod, DateTime.Now, chosenSmartphone, quantity);
                         DisplayReceipt(receipt);
+
 
                         receiptNumber++;
                     }
@@ -188,7 +193,7 @@ class Program
                     }
                 }
             }
-            else if (brandChoice == 7)
+            else if (brandChoice == 8)
             {
                 Console.WriteLine("\nThank you user, see us again!");
                 exit = true;
